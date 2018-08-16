@@ -12,9 +12,6 @@ public class LoginTest extends TestBase {
     }
 
     public static void main(String[] args) {
-        LoginTest test = new LoginTest();
-        test.setUp();
-        test.loginTest();
-//        test.tearDown();
+
     }
 }
