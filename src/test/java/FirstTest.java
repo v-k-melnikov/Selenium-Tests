@@ -1,17 +1,12 @@
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class FirstTest extends TestBase {
 
 
     @Test
-    public void firstTest() {
+    public void test() {
         driver.get("https://yandex.ru");
     }
 
-    public static void main(String[] args) {
-        FirstTest test = new FirstTest();
-        test.setUp();
-        test.firstTest();
-        test.tearDown();
-    }
+
 }
