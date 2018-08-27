@@ -11,9 +11,9 @@ public class StickerTestEx8 extends TestBase {
     @Test
     public void test()  {
         driver.get("http://localhost/litecart");
-        List<WebElement> products = driver.findElements(By.cssSelector("li[class^='product']"));
+        List<WebElement> products = driver.findElements(By.cssSelector("[class^='product']"));
         for (WebElement product : products) {
-            numOfStickers = product.findElements(By.cssSelector("div[class^='sticker']")).size();
+            numOfStickers = product.findElements(By.cssSelector("[class^='sticker']")).size();
             Assert.assertEquals(1, numOfStickers);
         }
     }
