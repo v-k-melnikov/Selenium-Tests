@@ -5,15 +5,15 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class StickerTest extends TestBase {
+public class StickerTestEx8 extends TestBase {
     private int numOfStickers;
 
     @Test
     public void test()  {
         driver.get("http://localhost/litecart");
-        List<WebElement> products = driver.findElements(By.cssSelector("li[class='product column shadow hover-light']"));
+        List<WebElement> products = driver.findElements(By.cssSelector("li[class^='product']"));
         for (WebElement product : products) {
-            numOfStickers = product.findElements(By.cssSelector("a.link div.image-wrapper div[class^='sticker']")).size();
+            numOfStickers = product.findElements(By.cssSelector("div[class^='sticker']")).size();
             Assert.assertEquals(1, numOfStickers);
         }
     }

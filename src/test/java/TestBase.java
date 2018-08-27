@@ -13,7 +13,7 @@ public class TestBase {
     @BeforeMethod
     public void setUp() {
         driver = new ChromeDriver();
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
     }

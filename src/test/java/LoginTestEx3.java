@@ -1,7 +1,7 @@
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class LoginTest extends TestBase {
+public class LoginTestEx3 extends TestBase {
 
     @Test
     public void test() {

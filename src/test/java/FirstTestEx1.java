@@ -1,6 +1,6 @@
 import org.testng.annotations.Test;
 
-public class FirstTest extends TestBase {
+public class FirstTestEx1 extends TestBase {
 
 
     @Test

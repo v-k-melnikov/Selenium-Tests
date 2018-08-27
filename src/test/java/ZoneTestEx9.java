@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ZoneTest extends TestBase {
+public class ZoneTestEx9 extends TestBase {
 
     private void testAlphabetOrder(ArrayList<String> arr) {
         ArrayList<String> sortedArr = arr;
