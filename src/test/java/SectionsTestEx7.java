@@ -10,6 +10,7 @@ public class SectionsTestEx7 extends TestBase {
         driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.name("login")).click();
         int numOfSections = driver.findElements(By.cssSelector("li[id='app-']")).size();
+        if (numOfSections == 0) throw new NullPointerException();
         for (int i = 1; i <= numOfSections; i++) {
             driver.findElement(By.cssSelector("li[id='app-']:nth-of-type(" + i + ")")).click();
             int numOfItems = driver.findElements(By.cssSelector("li[id^='doc'")).size();
