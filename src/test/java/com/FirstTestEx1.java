@@ -1,3 +1,5 @@
+package com;
+
 import org.testng.annotations.Test;
 
 public class FirstTestEx1 extends TestBase {

@@ -1,3 +1,5 @@
+package com;
+
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -11,7 +13,7 @@ public class SectionsTestEx7 extends TestBase {
         driver.findElement(By.name("login")).click();
         int numOfSections = driver.findElements(By.cssSelector("li[id='app-']")).size();
         if (numOfSections == 0) throw new NullPointerException();
-        for (int i = 1; i <= numOfSections; i++) {
+        for (int i = 1; i <= numOfSections; i++) {          
             driver.findElement(By.cssSelector("li[id='app-']:nth-of-type(" + i + ")")).click();
             int numOfItems = driver.findElements(By.cssSelector("li[id^='doc'")).size();
             for (int j = 1; j <= numOfItems; j++) {

@@ -1,3 +1,6 @@
+package com.ProductTestEx10;
+
+import com.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,7 +13,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ProductTestEx10 extends TestBase {
+public class ProductTestEx10 extends ParalelTestBase {
 
     private WebElement regularPriceElement;
     private WebElement salePriceElement;
@@ -156,8 +159,8 @@ public class ProductTestEx10 extends TestBase {
             } else {
                 getSaleAndRegularPriceProperties(productElement, product2);
             }
-            System.out.println(product);
-            System.out.println(product2);
+//            System.out.println(product);
+//            System.out.println(product2);
             Assert.assertEquals(product, product2);
             RGBColor rgbColor = getRGB(product.price.regularFontDecoration);
             Assert.assertEquals(rgbColor.blue, rgbColor.red, rgbColor.green);

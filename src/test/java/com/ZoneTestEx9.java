@@ -1,3 +1,5 @@
+package com;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -60,10 +62,14 @@ public class ZoneTestEx9 extends TestBase {
         countryElements.forEach(webElement -> countryLinks.add(webElement.getAttribute("href")));
         for (String link : countryLinks) {
             driver.get(link);
+
             List<WebElement> zones = driver.findElements(By.cssSelector("tr td select[name$='[zone_code]']"));
+            for (WebElement a : zones)
+                System.out.println(a.findElement(By.cssSelector("option[selected='selected']")).getText());
             if (zones.size() == 0) throw new NullPointerException();
             ArrayList<String> orderOfChosenZones = new ArrayList<>();
             zones.forEach(zone -> orderOfChosenZones.add(zone.findElement(By.cssSelector("option[selected='selected']")).getText()));
+            System.out.println(orderOfChosenZones);
             testAlphabetOrder(orderOfChosenZones);
         }
     }
