@@ -2,7 +2,6 @@ package com;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.text.DateFormat;
@@ -21,6 +20,7 @@ public class RegistrationTestEx11 extends TestBase {
 
     @Test
     public void test() {
+
         driver.get("http://localhost/litecart/en/create_account");
         driver.findElement(By.cssSelector("[name='firstname']")).sendKeys("Vasya");
         driver.findElement(By.cssSelector("[name='lastname']")).sendKeys("Pupkin");
@@ -30,21 +30,16 @@ public class RegistrationTestEx11 extends TestBase {
         new Select(driver.findElement(By.cssSelector("[name='country_code']"))).selectByValue("US");
         String newmail = randomMail();
         driver.findElement(By.cssSelector("[name='email']")).sendKeys(newmail);
+        driver.findElement(By.cssSelector("[name='phone']")).sendKeys("+11111111111");
         driver.findElement(By.cssSelector("[name='password']")).sendKeys("qwerty123");
         driver.findElement(By.cssSelector("[name='confirmed_password']")).sendKeys("qwerty123");
         driver.findElement(By.cssSelector("[name='create_account']")).click();
-        driver.get("http://localhost/litecart/en/logout");
-
-
-
-
-
-
+        driver.findElement(By.cssSelector("#box-account li:nth-of-type(4) a")).click();
+        driver.findElement(By.cssSelector("[name='email'")).sendKeys(newmail);
+        driver.findElement(By.cssSelector("[name='password'")).sendKeys("qwerty123");
+        driver.findElement(By.cssSelector("[name='login']")).click();
+        driver.findElement(By.cssSelector("#box-account li:nth-of-type(4) a")).click();
 
     }
-    @Override
-    @AfterMethod
-    public void tearDown(){
 
-    }
 }
