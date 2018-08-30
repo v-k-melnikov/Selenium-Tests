@@ -29,8 +29,7 @@ public class AddProductTestEx12 extends TestBase {
         driver.findElement(By.cssSelector("[name='quantity']")).sendKeys(Keys.CONTROL + "a");
         driver.findElement(By.cssSelector("[name='quantity']")).sendKeys("123");
         File b = new File("src/test/resources/21-11568-20101120151108_1.jpg");
-        String absolute = b.getCanonicalPath(); // may throw IOException
-        System.out.println(absolute);
+        String absolute = b.getCanonicalPath();
         driver.findElement(By.cssSelector("[name^='new_images']")).sendKeys(absolute);
         driver.findElement(By.cssSelector("[name='date_valid_from']")).click();
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
