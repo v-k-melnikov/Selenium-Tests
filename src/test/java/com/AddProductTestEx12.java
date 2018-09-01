@@ -31,10 +31,8 @@ public class AddProductTestEx12 extends TestBase {
         File b = new File("src/test/resources/21-11568-20101120151108_1.jpg");
         String absolute = b.getCanonicalPath();
         driver.findElement(By.cssSelector("[name^='new_images']")).sendKeys(absolute);
-        driver.findElement(By.cssSelector("[name='date_valid_from']")).click();
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("$(\"[name='date_valid_from']\").val('2015-05-11')");
-        jsExecutor.executeScript("$(\"[name='date_valid_to']\").val('2018-05-11')");
+        driver.findElement(By.cssSelector("[name='date_valid_from']")).sendKeys("05-11-2018");
+        driver.findElement(By.cssSelector("[name='date_valid_to']")).sendKeys("05-11-2018");
         Thread.sleep(2000);  //just for take a look
         driver.findElement(By.cssSelector("[href='#tab-information']")).click();
         new Select(driver.findElement(By.cssSelector("[name='manufacturer_id']"))).selectByValue("1");
