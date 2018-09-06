@@ -15,10 +15,7 @@ public class AddProductTestEx12 extends TestBase {
 
     @Test
     public void test() throws IOException, InterruptedException {
-        driver.get("http://localhost/litecart/admin/login.php");
-        driver.findElement(By.name("username")).sendKeys("admin");
-        driver.findElement(By.name("password")).sendKeys("admin");
-        driver.findElement(By.name("login")).click();
+       login();
         driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog");
         driver.findElement(By.cssSelector("a.button:nth-of-type(2)")).click();
         driver.findElement(By.cssSelector("[name='status'][value='1']")).click();

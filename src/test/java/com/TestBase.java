@@ -12,10 +12,16 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
     WebDriver driver;
-
+    void login(){
+        driver.get("http://localhost/litecart/admin/login.php");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
+    }
     @BeforeMethod
     public void setUp() {
         driver = new ChromeDriver();
+        
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
