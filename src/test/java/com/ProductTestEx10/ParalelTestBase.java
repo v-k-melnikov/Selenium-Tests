@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ParalelTestBase {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @Parameters("browser")
 

@@ -15,21 +15,9 @@ import java.util.TreeSet;
 public class WindowsTestEx14 extends TestBase {
 
 
-    private static ExpectedCondition<String> thereIsWindowOtherThan(String window) {
-        return new ExpectedCondition<String>() {
-            public String apply(WebDriver driver) {
-                TreeSet<String> windows = new TreeSet<>(driver.getWindowHandles());
-                windows.remove(window);
-                if (windows.size() > 0)
-                    return windows.first();
-                else
-                    return null;
-            }
-        };
-    }
 
     @Test
-    public void test() throws InterruptedException {
+    public void test()   {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         login();
         driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
