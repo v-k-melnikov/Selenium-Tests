@@ -1,6 +1,5 @@
 package com.PageObjectsEx19;
 
-import com.ProductTestEx10.ParalelTestBase;
 import com.TestBase;
 import org.testng.annotations.Test;
 

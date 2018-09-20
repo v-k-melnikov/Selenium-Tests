@@ -15,7 +15,6 @@ class MainPage {
     private WebElement firstProduct;
 
 
-
     MainPage(WebDriver driver) {
         // checking page
         if (!driver.getCurrentUrl().equals("http://localhost/litecart/en/")) {
