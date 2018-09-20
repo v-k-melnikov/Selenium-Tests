@@ -9,16 +9,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class LogTestEx17 extends TestBase {
 
     private String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL, Keys.RETURN);
 
-
     @Test
-    public void test()   {
+    public void test() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         login();
         driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1");
