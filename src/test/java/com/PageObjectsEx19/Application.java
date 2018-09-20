@@ -14,10 +14,10 @@ import java.util.regex.Pattern;
 public class Application {
     private WebDriver driver;
     private WebDriverWait wait;
-  private CartPage cartPage;
-  private LoginPage loginPage;
-  private MainPage mainPage;
-  private ProductPage productPage;
+    private CartPage cartPage;
+    private LoginPage loginPage;
+    private MainPage mainPage;
+    private ProductPage productPage;
 
     @FindBy(linkText = "Checkout »")
     private WebElement cart;
