@@ -7,9 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 class MainPage {
 
-    private static String URL_MATCH = "litecart";
+    private final static String URL_MATCH = "http://localhost/litecart/en/";
 
-    private WebElement table;
 
     @FindBy(css = "[class^='product']")
     private WebElement firstProduct;
@@ -17,7 +16,7 @@ class MainPage {
 
     MainPage(WebDriver driver) {
         // checking page
-        if (!driver.getCurrentUrl().equals("http://localhost/litecart/en/")) {
+        if (!driver.getCurrentUrl().equals(URL_MATCH)) {
             throw new IllegalStateException(
                     "This is not the page you are expected"
             );

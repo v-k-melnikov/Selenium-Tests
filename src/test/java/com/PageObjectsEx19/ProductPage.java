@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 
 class ProductPage {
 
+    private final static String URL_MATCH = "http://localhost/litecart/en/";
+
     @FindBy(css = "[name^='options']")
     private WebElement options;
 
@@ -22,7 +24,7 @@ class ProductPage {
 
     ProductPage(WebDriver driver) {
         // checking page
-        if (!driver.getCurrentUrl().startsWith("http://localhost/litecart/en/")) {
+        if (!driver.getCurrentUrl().startsWith(URL_MATCH)) {
             throw new IllegalStateException(
                     "This is not the page you are expected"
             );

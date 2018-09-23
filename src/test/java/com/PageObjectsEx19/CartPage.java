@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 class CartPage {
 
-    private static String URL_MATCH = "checkout";
+    private final static String URL_MATCH = "http://localhost/litecart/en/checkout";
 
     private WebDriver driver;
 
@@ -26,7 +26,7 @@ class CartPage {
 
     CartPage(WebDriver driver) {
         // checking page
-        if (!driver.getCurrentUrl().equals("http://localhost/litecart/en/checkout")) {
+        if (!driver.getCurrentUrl().equals(URL_MATCH)) {
             throw new IllegalStateException(
                     "This is not the page you are expected"
             );

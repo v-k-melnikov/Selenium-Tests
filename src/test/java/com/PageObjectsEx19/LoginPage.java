@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
+  private static String URL_MATCH = "localhost/litecart/admin/";
+
     @FindBy(name = "username")
     private WebElement username;
 
@@ -18,7 +20,6 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         // checking page
-        String URL_MATCH = "login";
         if (!driver.getCurrentUrl().contains(URL_MATCH)) {
             throw new IllegalStateException(
                     "This is not the page you are expected"
