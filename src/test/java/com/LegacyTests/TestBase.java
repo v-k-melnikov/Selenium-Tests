@@ -1,4 +1,4 @@
-package com;
+package com.LegacyTests;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;

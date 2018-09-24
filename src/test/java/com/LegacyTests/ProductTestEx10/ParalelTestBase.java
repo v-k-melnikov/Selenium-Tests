@@ -1,4 +1,4 @@
-package com.ProductTestEx10;
+package com.LegacyTests.ProductTestEx10;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

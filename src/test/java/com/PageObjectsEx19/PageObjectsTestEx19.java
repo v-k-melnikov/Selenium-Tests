@@ -1,6 +1,6 @@
 package com.PageObjectsEx19;
 
-import com.TestBase;
+import com.LegacyTests.TestBase;
 import org.testng.annotations.Test;
 
 public class PageObjectsTestEx19 extends TestBase {

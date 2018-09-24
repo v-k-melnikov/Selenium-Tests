@@ -1,4 +1,4 @@
-package com;
+package com.LegacyTests;
 
 import org.testng.annotations.Test;
 

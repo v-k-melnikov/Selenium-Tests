@@ -1,6 +1,5 @@
-package com.ProductTestEx10;
+package com.LegacyTests.ProductTestEx10;
 
-import com.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
