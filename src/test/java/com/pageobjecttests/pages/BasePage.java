@@ -29,6 +29,7 @@ public abstract class BasePage {
         changeImplicitWait(timeOut, TimeUnit.SECONDS);
     }
 
+
     protected boolean isElementOnPage(WebElement element) {
         changeImplicitWait(500, TimeUnit.MILLISECONDS);
         boolean isElementOnPage = true;

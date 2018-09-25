@@ -10,7 +10,7 @@
 
         <classes>
 
-            <class name="com.legacytests.ProductTestEx10.ProductTestEx10"/>
+            <class name="com.legacytests.producttest.ProductTestEx10"/>
 
         </classes>
 
@@ -22,7 +22,7 @@
 
         <classes>
 
-            <class name="com.legacytests.ProductTestEx10.ProductTestEx10"/>
+            <class name="com.legacytests.producttest.ProductTestEx10"/>
 
         </classes>
 
@@ -35,7 +35,7 @@
 
         <classes>
 
-            <class name="com.legacytests.ProductTestEx10.ProductTestEx10"/>
+            <class name="com.legacytests.producttest.ProductTestEx10"/>
 
         </classes>
 
