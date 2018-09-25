@@ -1,4 +1,4 @@
-package com.LegacyTests.ProductTestEx10;
+package com.legacytests.ProductTestEx10;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
