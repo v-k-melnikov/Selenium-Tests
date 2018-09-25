@@ -37,6 +37,7 @@ public class TestBase {
 
      static ExpectedCondition<String> thereIsWindowOtherThan(String window) {
         return driver -> {
+            assert driver != null;
             TreeSet<String> windows = new TreeSet<>(driver.getWindowHandles());
             windows.remove(window);
             if (windows.size() > 0)
