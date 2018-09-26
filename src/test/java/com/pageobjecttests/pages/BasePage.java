@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +15,7 @@ public abstract class BasePage {
     //    protected WebDriver driver = DriverProvider.getActiveDriver();
     private WebDriverWait waitFor;
     protected int timeOut = 5;
+    protected  static String URL_PATH;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -28,7 +30,9 @@ public abstract class BasePage {
     protected void restoreDefaultImplicitWait() {
         changeImplicitWait(timeOut, TimeUnit.SECONDS);
     }
-
+    public void verifyUrl() {
+        Assert.assertEquals(URL_PATH, driver.getCurrentUrl());
+    }
 
     protected boolean isElementOnPage(WebElement element) {
         changeImplicitWait(500, TimeUnit.MILLISECONDS);

@@ -1,13 +1,12 @@
-package com.pageobjecttests.pages;
+package com.pageobjecttests.pages.adminpages;
 
+import com.pageobjecttests.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
-public class AdminPage extends BasePage {
+public abstract class AdminBasePage extends BasePage {
 
-    public final static String URL_PATH = "http://demo.litecart.net/admin/";
 
     @FindBy(css = "h1")
     protected WebElement header;
@@ -18,14 +17,11 @@ public class AdminPage extends BasePage {
     @FindBy(xpath = "//span[text()='Geo Zones']")
     protected WebElement geozonesSection;
 
-    public AdminPage(WebDriver driver) {
+    public AdminBasePage(WebDriver driver) {
         super(driver);
     }
 
-    public AdminPage open() {
-        driver.get(URL_PATH);
-        return this;
-    }
+
 
     public CatalogPage goToCatalogPage() {
         catalogSection.click();
@@ -33,7 +29,7 @@ public class AdminPage extends BasePage {
     }
 
     public CountriesPage goToCountriesPage() {
-        catalogSection.click();
+        countriesSection.click();
         return new CountriesPage(driver);
     }
 
@@ -42,9 +38,7 @@ public class AdminPage extends BasePage {
         return new GeoZonesPage(driver);
     }
 
-    public void verifyUrl() {
-        Assert.assertEquals(URL_PATH, driver.getCurrentUrl());
-    }
+
 
 
 }
