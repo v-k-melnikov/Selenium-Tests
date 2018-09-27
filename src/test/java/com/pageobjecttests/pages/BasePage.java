@@ -34,7 +34,7 @@ public abstract class BasePage {
         Assert.assertEquals(URL_PATH, driver.getCurrentUrl());
     }
 
-    protected boolean isElementOnPage(WebElement element) {
+    public boolean isElementOnPage(WebElement element) {
         changeImplicitWait(500, TimeUnit.MILLISECONDS);
         boolean isElementOnPage = true;
         try {

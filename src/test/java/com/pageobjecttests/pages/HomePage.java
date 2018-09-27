@@ -27,6 +27,8 @@ public class HomePage extends BasePage {
     private WebElement popularProducts;
     @FindBy(linkText = "Latest Products")
     private WebElement latestProducts;
+    @FindBy(css = "[class='alert alert-success']")
+    private WebElement successRegistrationAlert;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -88,6 +90,10 @@ public class HomePage extends BasePage {
 
     private void verifyStickerPresent(WebElement el) {
         Assert.assertTrue(isElementOnPage(el.findElement(By.cssSelector("[class=sticker sale]"))));
+    }
+
+    public boolean verifySignUp(){
+        return isElementOnPage(successRegistrationAlert);
     }
 
 }
