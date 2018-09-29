@@ -1,8 +1,6 @@
 package com.pageobjecttests.pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -15,7 +13,7 @@ public abstract class BasePage {
     //    protected WebDriver driver = DriverProvider.getActiveDriver();
     private WebDriverWait waitFor;
     protected int timeOut = 5;
-    protected  static String URL_PATH;
+    public    String URL_PATH;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -30,17 +28,32 @@ public abstract class BasePage {
     protected void restoreDefaultImplicitWait() {
         changeImplicitWait(timeOut, TimeUnit.SECONDS);
     }
-    public void verifyUrl() {
-        Assert.assertEquals(URL_PATH, driver.getCurrentUrl());
+    public void verifyURL(String givenURL) {
+        Assert.assertEquals(driver.getCurrentUrl(), givenURL);
     }
 
-    public boolean isElementOnPage(WebElement element) {
+
+
+    public boolean isElementOnPage(String cssSelector) {
         changeImplicitWait(500, TimeUnit.MILLISECONDS);
         boolean isElementOnPage = true;
         try {
             // Get location on WebElement is rising exception when element is not present
-            element.getLocation();
-        } catch (WebDriverException ex) {
+            driver.findElement(By.cssSelector(cssSelector));
+        } catch (NoSuchElementException ex) {
+            isElementOnPage = false;
+        } finally {
+            restoreDefaultImplicitWait();
+        }
+        return isElementOnPage;
+    }
+    public boolean isElementHaveElement(WebElement el, String cssSelector) {
+        changeImplicitWait(500, TimeUnit.MILLISECONDS);
+        boolean isElementOnPage = true;
+        try {
+            // Get location on WebElement is rising exception when element is not present
+            el.findElement(By.cssSelector(cssSelector));
+        } catch (NoSuchElementException ex) {
             isElementOnPage = false;
         } finally {
             restoreDefaultImplicitWait();

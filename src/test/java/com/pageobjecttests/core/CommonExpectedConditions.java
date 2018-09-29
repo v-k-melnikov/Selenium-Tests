@@ -4,6 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 public class CommonExpectedConditions {
+
+
+    private CommonExpectedConditions() {
+    }
+
+
     public static ExpectedCondition<Boolean> newWindowPresent() {
         return new ExpectedCondition<Boolean>() {
             @Override

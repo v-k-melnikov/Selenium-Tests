@@ -1,6 +1,7 @@
 package com.pageobjecttests.pages.adminpages;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class AdminHomePage extends AdminBasePage {
     public final static String URL_PATH = "http://demo.litecart.net/admin/";
@@ -11,4 +12,5 @@ public class AdminHomePage extends AdminBasePage {
         driver.get(URL_PATH);
         return this;
     }
+
 }

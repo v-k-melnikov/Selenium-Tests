@@ -11,21 +11,22 @@ public class ProductPopup extends BasePage {
 
     @FindBy(css = "#box-product .title")
     private WebElement productName;
-    @FindBy(css = "#box-product span.regular-price")
+    @FindBy(css = "#box-product span.price")
     private WebElement price;
-    @FindBy(css = "#box-product s.regular-price")
+    @FindBy(css = "#box-product del.regular-price")
     private WebElement regularPrice;
     @FindBy(css = "#box-product strong.campaign-price")
     private WebElement discountPrice;
     @FindBy(css = "#box-product .img-responsive")
     private WebElement imagePath;
-
+    @FindBy(css = "div[aria-label='Close']")
+    private WebElement closePopupButton;
     public ProductPopup(WebDriver driver) {
         super(driver);
     }
 
     private boolean haveDiscount() {
-        return isElementOnPage(discountPrice);
+        return isElementOnPage("#box-product strong.campaign-price");
     }
 
     public void verifyProduct(Product product) {
@@ -38,5 +39,6 @@ public class ProductPopup extends BasePage {
             Assert.assertEquals(product.getPrice(), regularPrice.getText());
         }
         Assert.assertEquals(product.getImagePath(), imagePath.getAttribute("src"));
+        closePopupButton.click();
         }
     }

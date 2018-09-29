@@ -35,7 +35,7 @@ public class TestBase {
         driver = null;
     }
 
-     static ExpectedCondition<String> thereIsWindowOtherThan(String window) {
+     public static ExpectedCondition<String> thereIsWindowOtherThan(String window) {
         return driver -> {
             assert driver != null;
             TreeSet<String> windows = new TreeSet<>(driver.getWindowHandles());

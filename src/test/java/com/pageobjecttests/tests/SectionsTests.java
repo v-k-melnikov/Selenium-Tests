@@ -1,5 +1,6 @@
 package com.pageobjecttests.tests;
 
+import com.pageobjecttests.pages.AdminLoginPage;
 import com.pageobjecttests.pages.adminpages.AdminHomePage;
 import com.pageobjecttests.pages.adminpages.CatalogPage;
 import com.pageobjecttests.pages.adminpages.CountriesPage;
@@ -10,25 +11,31 @@ public class SectionsTests extends TestTemplate {
 
     @Test
     public void catalogSectionTest() {
-        AdminHomePage adminHomePage = new AdminHomePage(driver).open();
+        AdminLoginPage adminLoginPage = new AdminLoginPage(driver).open();
+        adminLoginPage.login();
+        AdminHomePage adminHomePage = new AdminHomePage(driver);
         CatalogPage catalogPage = adminHomePage.goToCatalogPage();
-        catalogPage.verifyUrl();
+        catalogPage.verifyURL(CatalogPage.URL_PATH);
         catalogPage.verifyHeader();
     }
 
     @Test
     public void countriesSectionTest() {
-        AdminHomePage adminHomePage = new AdminHomePage(driver).open();
+        AdminLoginPage adminLoginPage = new AdminLoginPage(driver).open();
+        adminLoginPage.login();
+        AdminHomePage adminHomePage = new AdminHomePage(driver);
         CountriesPage countriesPage = adminHomePage.goToCountriesPage();
-        countriesPage.verifyUrl();
+        countriesPage.verifyURL(CountriesPage.URL_PATH);
         countriesPage.verifyHeader();
     }
 
     @Test
     public void geoZonesSectionTest() {
-        AdminHomePage adminHomePage = new AdminHomePage(driver).open();
+        AdminLoginPage adminLoginPage = new AdminLoginPage(driver).open();
+        adminLoginPage.login();
+        AdminHomePage adminHomePage = new AdminHomePage(driver);
         GeoZonesPage geoZonesPage = adminHomePage.goToGeoZonesPage();
-        geoZonesPage.verifyUrl();
+        geoZonesPage.verifyURL(GeoZonesPage.URL_PATH);
         geoZonesPage.verifyHeader();
     }
 

@@ -17,10 +17,8 @@ class CartPage extends BasePage{
 
     @FindBy(linkText = "<< Back")
     private WebElement backButton;
-
     @FindBy(css = "[name='remove_cart_item']")
     private WebElement removeItemButton;
-
     @FindBy(className = "shortcut")
     private WebElement shortcut;
 
@@ -40,6 +38,10 @@ class CartPage extends BasePage{
 
     void stopCartForm() {
         shortcut.click();
+    }
+    public CartPage open() {
+        driver.get(URL_PATH);
+        return this;
     }
 
 }

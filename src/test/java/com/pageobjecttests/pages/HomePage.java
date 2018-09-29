@@ -27,8 +27,10 @@ public class HomePage extends BasePage {
     private WebElement popularProducts;
     @FindBy(linkText = "Latest Products")
     private WebElement latestProducts;
-    @FindBy(css = "[class='alert alert-success']")
-    private WebElement successRegistrationAlert;
+    @FindBy(css = "li[class='account dropdown']")
+    private WebElement acountDropdown;
+    @FindBy(css = "li[class='text-center']")
+    private WebElement toRegistraionButton;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -53,22 +55,22 @@ public class HomePage extends BasePage {
 
     private Set<Product> getAndVerifyProducts() {
         Set<Product> productSet = new HashSet<>();
-        List<WebElement> productElements = driver.findElements(By.cssSelector("[class^='product']"));
+        List<WebElement> productElements = driver.findElements(By.cssSelector("[class^='product column']"));
         for (WebElement el : productElements) {
             if (!el.isDisplayed()) continue;
             Product product = new Product();
             product.setName(el.findElement(By.cssSelector("a.link div.name")).getText());
             product.setLink(el.findElement(By.cssSelector("a.link")).getAttribute("href"));
-            product.setHaveDiscount(isElementOnPage(el.findElement(By.cssSelector("strong.campaign-price"))));
+            product.setHaveDiscount(isElementHaveElement(el, "strong.campaign-price"));
             if (!product.isHaveDiscount())
-                product.setPrice(el.findElement(By.cssSelector("span.regular-price")).getText());
+                product.setPrice(el.findElement(By.cssSelector("span.price")).getText());
             else {
                 verifyStickerPresent(el);
                 product.setPrice(el.findElement(By.cssSelector("s.regular-price")).getText());
                 product.setDiscountPrice(el.findElement(By.cssSelector("strong.campaign-price")).getText());
             }
             product.setImagePath(el.findElement(By.cssSelector("[class='image img-responsive']")).getAttribute("src"));
-            el.click();
+            el.findElement(By.cssSelector("a")).click();
             ProductPopup productPopup = new ProductPopup(driver);
             productPopup.verifyProduct(product);
             productSet.add(product);
@@ -89,11 +91,17 @@ public class HomePage extends BasePage {
     }
 
     private void verifyStickerPresent(WebElement el) {
-        Assert.assertTrue(isElementOnPage(el.findElement(By.cssSelector("[class=sticker sale]"))));
+        el.findElement(By.cssSelector("[class='sticker sale']"));
     }
 
-    public boolean verifySignUp(){
-        return isElementOnPage(successRegistrationAlert);
+    public boolean verifySignUp() {
+        return isElementOnPage("[class='alert alert-success']");
     }
+
+    public void goToRegistrationForm() {
+        acountDropdown.click();
+        toRegistraionButton.click();
+    }
+
 
 }
