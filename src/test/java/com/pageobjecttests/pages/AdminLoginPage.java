@@ -16,7 +16,7 @@ public class AdminLoginPage extends BasePage {
 
     protected WebElement loginButton;
 
-    public void login(){
+    public void login() {
         loginButton.click();
     }
 

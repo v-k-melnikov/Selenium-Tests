@@ -5,15 +5,12 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-class CartPage extends BasePage{
+class CartPage extends BasePage {
 
-    private final static String URL_MATCH = "http://localhost/litecart/en/checkout";
-
-    private WebDriver driver;
+    private final static String URL_PATH = "http://demo.litecart.net/checkout";
 
     @FindBy(linkText = "<< Back")
     private WebElement backButton;
@@ -39,9 +36,9 @@ class CartPage extends BasePage{
     void stopCartForm() {
         shortcut.click();
     }
+
     public CartPage open() {
         driver.get(URL_PATH);
         return this;
     }
-
 }

@@ -13,7 +13,6 @@ public class TestTemplate {
     public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
     public WebDriver driver;
     public WebDriverWait wait;
-    public static final String BASE_URL = "http://demo.litecart.net";
 
     @BeforeTest
     public void start() {

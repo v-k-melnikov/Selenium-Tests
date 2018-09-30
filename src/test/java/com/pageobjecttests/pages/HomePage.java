@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.HashSet;
@@ -41,7 +42,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public boolean isOnlyCampaignProductsAreaDisplayed() {
+    public boolean isThereOnlyCampaignProductsAreaDisplayed() {
         return campaignProductsArea.isDisplayed() && !popularProductsArea.isDisplayed() && !latestProductsArea.isDisplayed();
     }
 
@@ -80,7 +81,7 @@ public class HomePage extends BasePage {
 
     public void verifyAllProducts() {
         campaignProducts.click();
-        Assert.assertTrue(isOnlyCampaignProductsAreaDisplayed());
+        Assert.assertTrue(isThereOnlyCampaignProductsAreaDisplayed());
         getAndVerifyProducts();
         popularProducts.click();
         Assert.assertTrue(isOnlyPopularProductsAreaDisplayed());

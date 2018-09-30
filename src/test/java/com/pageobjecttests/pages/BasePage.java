@@ -1,6 +1,9 @@
 package com.pageobjecttests.pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -10,10 +13,8 @@ import java.util.concurrent.TimeUnit;
 public abstract class BasePage {
 
     protected WebDriver driver;
-    //    protected WebDriver driver = DriverProvider.getActiveDriver();
-    private WebDriverWait waitFor;
+    protected WebDriverWait waitFor;
     protected int timeOut = 5;
-    public    String URL_PATH;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -28,10 +29,10 @@ public abstract class BasePage {
     protected void restoreDefaultImplicitWait() {
         changeImplicitWait(timeOut, TimeUnit.SECONDS);
     }
+
     public void verifyURL(String givenURL) {
         Assert.assertEquals(driver.getCurrentUrl(), givenURL);
     }
-
 
 
     public boolean isElementOnPage(String cssSelector) {
@@ -47,6 +48,7 @@ public abstract class BasePage {
         }
         return isElementOnPage;
     }
+
     public boolean isElementHaveElement(WebElement el, String cssSelector) {
         changeImplicitWait(500, TimeUnit.MILLISECONDS);
         boolean isElementOnPage = true;
@@ -60,4 +62,6 @@ public abstract class BasePage {
         }
         return isElementOnPage;
     }
+
+
 }

@@ -9,7 +9,6 @@ public class ProductsTest extends TestTemplate{
     @Test
     public void productsVerification(){
         HomePage homePage = new HomePage(driver).open();
-        Assert.assertTrue(homePage.isOnlyCampaignProductsAreaDisplayed());
         homePage.verifyAllProducts();
     }
 

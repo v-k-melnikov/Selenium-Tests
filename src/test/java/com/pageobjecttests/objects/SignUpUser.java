@@ -32,12 +32,6 @@ public class SignUpUser {
         password = "qwe123";
     }
 
-    public SignUpUser(String email, String password){
-        this();
-        this.email = email;
-        this.password = password;
-    }
-
     private String getRandomMail() {
         DateFormat df = new SimpleDateFormat("ddMMyyyyHHmmss");
         Date today = Calendar.getInstance().getTime();
